@@ -1,6 +1,5 @@
 import sys
 from server import Server
-from Variables import all_threads
 import threading
 from Client import Client
 
@@ -47,8 +46,7 @@ class main:
                 sys.exit()
 
             elif user_input == "listen":
-                newThread = threading.Thread(target=self.accept_connections).start()
-                all_threads.append(newThread)
+                threading.Thread(target=self.accept_connections).start()
                 print(f"Listening for connections on {self.Host}:{str(self.Port)}")
             
             elif user_input == "list":
